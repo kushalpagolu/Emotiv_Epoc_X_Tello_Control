@@ -210,7 +210,7 @@ A multi-threaded architecture processes EEG data from an Emotiv headset, extract
 ![threading](https://github.com/user-attachments/assets/cf0a3258-1f40-4721-a2f1-3937ca993885)
 
 
-                           ![Arrow](https://github.com/user-attachments/assets/df4c5208-909a-49ca-936d-165a21715ff7)
+![Arrow](https://github.com/user-attachments/assets/df4c5208-909a-49ca-936d-165a21715ff7)
 
 
 
