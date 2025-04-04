@@ -370,14 +370,15 @@ def higuchi_fractal_dimension(signal):
 ### 1. Preprocessing Pipeline Architecture
 
 ```mermaid
-graph LR
-    R[Raw EEG] --&gt; BP[1-50Hz Bandpass]
-    BP --&gt; NF[50Hz Notch]
-    NF --&gt; ICA[ICA Artifact Removal]
-    ICA --&gt; CAR[Common Average Reference]
-    CAR --&gt; ANC[Adaptive Noise Cancellation]
-    ANC --&gt; DWT[Wavelet Denoising]
-    DWT --&gt; F[Feature Extraction]
+
+    R[Raw EEG] --> BP[1-50Hz Bandpass]
+    BP --> NF[50Hz Notch]
+    NF --> ICA[ICA Artifact Removal]
+    ICA --> CAR[Common Average Reference]
+    CAR --> ANC[Adaptive Noise Cancellation]
+    ANC --> DWT[Wavelet Denoising]
+    DWT --> F[Feature Extraction]
+
 ```
 
 
