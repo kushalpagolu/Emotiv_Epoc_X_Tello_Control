@@ -7,7 +7,10 @@ Project aims to control a Tello drone using real-time EEG data streamed from an 
 This project aims to control a Tello drone using real-time EEG data streamed from an Emotiv EPOC X headset. It utilizes an LSTM and Reinforcement Learning (RL) agent trained with the PPO algorithm to translate EEG signals into drone control commands. The system includes modules for data streaming, preprocessing, visualization, drone control, and RL-based decision-making. The RL agent continuously learns and improves its control strategy over multiple sessions.
 
 
-## The EMOTIV EPOC+ headset sends encrypted 32-byte data packets that decrypt to a structured array containing EEG readings, sensor data, and device status information. Here's the breakdown of the decrypted data structure:
+### The EMOTIV EPOC+ headset sends encrypted 32-byte data packets that decrypt to a structured array containing EEG readings, sensor data, and device status information. 
+
+
+## Here's the breakdown of the decrypted data structure:
 
 ## Data Packet Structure
 
@@ -233,10 +236,6 @@ A multi-threaded architecture processes EEG data from an Emotiv headset, extract
 
 ![threading](https://github.com/user-attachments/assets/cf0a3258-1f40-4721-a2f1-3937ca993885)
 
-                                              | 
-                                              | 
-                                              ▼
-
 ![lstmrlagentdroneenv](https://github.com/user-attachments/assets/516b7c84-ab0c-47b4-968d-3fbb48da74dd)
 
 
@@ -310,21 +309,20 @@ This feature extraction pipeline transforms raw EEG signals into meaningful biom
 ## 🧠 Pipeline Workflow
 
 ```
-graph TD
-    A[Raw EEG Signals] --&gt; B(Bandpass Filter 1-50Hz)
-    B --&gt; C(Notch Filter 50/60Hz)
-    C --&gt; D{Artifact Removal}
-    D --&gt; E[ICA for Ocular/Muscular]
-    D --&gt; F[ANC for Ambient Noise]
-    E --&gt; G(Common Average Reference)
-    F --&gt; G
-    G --&gt; H(Wavelet Denoising)
-    H --&gt; I[Feature Extraction]
-    I --&gt; J[Band Power Analysis]
-    I --&gt; K[Hjorth Parameters]
-    I --&gt; L[Spectral Entropy]
-    I --&gt; M[Higuchi FD]
-    I --&gt; N[Wavelet Features]
+    A[Raw EEG Signals] --> B(Bandpass Filter 1-50Hz)
+    B --> C(Notch Filter 50/60Hz)
+    C --> D{Artifact Removal}
+    D --> E[ICA for Ocular/Muscular]
+    D --> F[ANC for Ambient Noise]
+    E --> G(Common Average Reference)
+    F --> G
+    G --> H(Wavelet Denoising)
+    H --> I[Feature Extraction]
+    I --> J[Band Power Analysis]
+    I --> K[Hjorth Parameters]
+    I --> L[Spectral Entropy]
+    I --> M[Higuchi FD]
+    I --> N[Wavelet Features]
 ```
 
 ---
