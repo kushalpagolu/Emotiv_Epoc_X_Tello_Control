@@ -376,6 +376,7 @@ def higuchi_fractal_dimension(signal):
 
 #### 1.1 Spectral Filtering
 
+We only want  the frequencies (the different bands of brainwave activity like alpha, beta, theta, delta, gamma) that are important. A bandpass filter is like setting the lower and upper limits on the  dial, letting through only the frequencies we care about (typically 1-50 Hz).
 **Bandpass (1-50Hz):**
 
 - Removes DC drift (>0.5Hz) and high-frequency muscle artifacts (>50Hz)
@@ -387,6 +388,7 @@ def higuchi_fractal_dimension(signal):
     - Gamma (30-50Hz): Cross-modal processing
 
 **Notch Filter (50/60Hz):**
+A Notch filter specifically targets power line noise (50Hz or 60Hz depending on where you live). 
 
 - Attenuates power line interference by -40dB
 - Prevents spectral leakage in FFT analysis
@@ -395,6 +397,8 @@ def higuchi_fractal_dimension(signal):
 #### 1.2 Artifact Removal
 
 **Independent Component Analysis (ICA):**
+
+EEG signal is a mix of many independent sources, some from your brain, and some from other places (like eye blinks or muscle movements). ICA tries to "unmix" these sources.
 
 - Matrix decomposition:
 
@@ -407,6 +411,7 @@ $$
     - Cardiac interference (ECG: 0.8-2Hz)
 
 **Adaptive Noise Cancellation (ANC):**
+ANC uses a reference signal from a noise sensor to automatically subtract the noise from EEG channels.
 
 - LMS algorithm update:
 
@@ -423,7 +428,10 @@ $$
 
 **Common Average Reference (CAR):**
 
+Eliminating a common background noise from all the EEG channels. It helps to reduce noise that affects all sensors equally.
+
 - Reduces global noise:
+- 
 
 $$
 V_{car} = V_i - \frac{1}{N}\sum_{j=1}^N V_j
@@ -431,11 +439,22 @@ $$
 - Improves signal-to-noise ratio by 3.2dB
 
 
-### 2. Feature Extraction Theory
+### 2. Feature Extraction 
+Once the signal is clean, we need to extract the "features" that tell us something about what the brain is doing. These are like key characteristics or patterns in the brainwave data.
 
 #### 2.1 Temporal Features
 
 **Hjorth Parameters:**
+
+These are a set of three parameters (activity, mobility, and complexity) that describe the shape and characteristics of the EEG signal in the time domain.
+
+Activity: Represents the power of the signal.
+
+Mobility: Related to the average frequency of the signal. Higher mobility means higher frequency.
+
+Complexity: Indicates how much the shape of the signal changes.
+
+Hjorth parameters help quantify the characteristics of the EEG signal, providing additional information about brain activity beyond simple band power measurements.
 
 - Mobility (signal complexity):
 
@@ -451,13 +470,29 @@ $$
 
 #### 2.2 Spectral Features
 
+This measures the "randomness" or "uncertainty" of the frequency content in the EEG signal.
+
+
+
+
+
 **Relative Band Power:**
+
+We divide the EEG signal into different frequency bands (alpha, beta, theta, delta, gamma), and we measure the "power" (strength) of each band.
+
+This is like measuring how loud each instrument is in an orchestra. Different mental states are associated with different patterns of band power. For example, alpha power might be higher when you're relaxed.
+
+Math Behind Band Power: Essentially, you're calculating the area under the power spectral density (PSD) curve for each band. The PSD tells you how much power is present at each frequency.
 
 $$
 P_{band} = \frac{\int_{f_l}^{f_h} PSD(f)df}{\int_{1}^{50} PSD(f)df}
 $$
 
 **Spectral Entropy:**
+
+A high spectral entropy means that the signal is spread out across many frequencies (more random), while a low spectral entropy means that the signal is concentrated in a few frequencies (more predictable).
+
+Math Behind Spectral Entropy: You start with the PSD (power spectral density), which shows the power of the signal at each frequency. You then normalize this PSD to get a probability distribution, and finally, you calculate the entropy of this distribution using Shannon's formula.
 
 $$
 H_{spec} = -\sum_{f} P(f)\log P(f)
@@ -466,6 +501,10 @@ $$
 #### 2.3 Nonlinear Features
 
 **Higuchi Fractal Dimension:**
+
+This measures the complexity of the EEG signal. Signals that are more chaotic and irregular will have a higher fractal dimension.
+
+Math Behind Higuchi FD: This involves reconstructing the EEG signal in different ways and measuring its length. The fractal dimension is related to how the length changes as you reconstruct the signal at different scales.
 
 $$
 FD = \frac{\log(L(k)/k)}{\log(1/k)}
