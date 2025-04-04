@@ -190,10 +190,6 @@ Here's a breakdown of the purpose of each file in the project:
 
 
 
-# Can you analyze he code line by line and make a detailed Read me file for new folks to understand the code and how the program flow works and threading is handling each process. Give a detailed flow chart on how the program flow is moving from main file
-
-The provided codebase implements a real-time EEG processing system for brain-controlled drone operation. Here's a detailed analysis and documentation:
-
 # EEG-Driven Drone Control System
 
 ## System Overview
