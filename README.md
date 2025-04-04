@@ -551,16 +551,6 @@ Feature Window: 10s sequences → LSTM input
 
 ---
 
-## 🛠 Implementation Notes
-
-### Dependencies
-
-```bash
-numpy==1.26.4
-scipy==1.13.0
-pywavelets==1.5.0
-scikit-learn==1.4.2
-```
 
 
 ### Execution
@@ -645,7 +635,7 @@ RL Agent Output: 6 actions  # (yaw, pitch, roll, altitude, x, y)
 1. **Empty Packet Flood:**
 
 ```python
-if empty_packet_count &gt; 200:  # Auto-reconnect trigger
+if empty_packet_count > 200:  # Auto-reconnect trigger
     emotiv.disconnect()
     time.sleep(3)
     emotiv.connect()
