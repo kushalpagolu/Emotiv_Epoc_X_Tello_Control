@@ -288,19 +288,12 @@ This feature extraction pipeline transforms raw EEG signals into meaningful biom
 
 ```
     A[Raw EEG Signals] --> B(Bandpass Filter 1-50Hz)
-    B --> C(Notch Filter 50/60Hz)
-    C --> D{Artifact Removal}
-    D --> E[ICA for Ocular/Muscular]
-    D --> F[ANC for Ambient Noise]
-    E --> G(Common Average Reference)
-    F --> G
-    G --> H(Wavelet Denoising)
-    H --> I[Feature Extraction]
-    I --> J[Band Power Analysis]
-    I --> K[Hjorth Parameters]
-    I --> L[Spectral Entropy]
-    I --> M[Higuchi FD]
-    I --> N[Wavelet Features]
+    BP --> NF[50Hz Notch]
+    NF --> ICA[ICA Artifact Removal]
+    ICA --> CAR[Common Average Reference]
+    CAR --> ANC[Adaptive Noise Cancellation]
+    ANC --> DWT[Wavelet Denoising]
+    DWT --> F[Feature Extraction]
 ```
 
 ---
