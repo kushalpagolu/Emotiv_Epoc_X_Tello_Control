@@ -367,24 +367,11 @@ def higuchi_fractal_dimension(signal):
 
 ## Neural Signal Processing Fundamentals
 
-### 1. Preprocessing Pipeline Architecture
-
-```
-
-    R[Raw EEG] --> BP[1-50Hz Bandpass]
-    BP --> NF[50Hz Notch]
-    NF --> ICA[ICA Artifact Removal]
-    ICA --> CAR[Common Average Reference]
-    CAR --> ANC[Adaptive Noise Cancellation]
-    ANC --> DWT[Wavelet Denoising]
-    DWT --> F[Feature Extraction]
-
-```
 
 
-### 2. Critical Preprocessing Stages
+### 1. Critical Preprocessing Stages
 
-#### 2.1 Spectral Filtering
+#### 1.1 Spectral Filtering
 
 **Bandpass (1-50Hz):**
 
@@ -402,7 +389,7 @@ def higuchi_fractal_dimension(signal):
 - Prevents spectral leakage in FFT analysis
 
 
-#### 2.2 Artifact Removal
+#### 1.2 Artifact Removal
 
 **Independent Component Analysis (ICA):**
 
@@ -429,7 +416,7 @@ $$
     - Motion artifacts
 
 
-#### 2.3 Spatial Filtering
+#### 1.3 Spatial Filtering
 
 **Common Average Reference (CAR):**
 
@@ -441,9 +428,9 @@ $$
 - Improves signal-to-noise ratio by 3.2dB
 
 
-### 3. Feature Extraction Theory
+### 2. Feature Extraction Theory
 
-#### 3.1 Temporal Features
+#### 2.1 Temporal Features
 
 **Hjorth Parameters:**
 
@@ -459,7 +446,7 @@ Comp = \frac{Mob(\frac{d^2V}{dt^2})}{Mob(\frac{dV}{dt})}
 $$
 
 
-#### 3.2 Spectral Features
+#### 2.2 Spectral Features
 
 **Relative Band Power:**
 
@@ -473,7 +460,7 @@ $$
 H_{spec} = -\sum_{f} P(f)\log P(f)
 $$
 
-#### 3.3 Nonlinear Features
+#### 2.3 Nonlinear Features
 
 **Higuchi Fractal Dimension:**
 
@@ -493,7 +480,7 @@ $$
 - Captures transient features in δ,θ,α bands
 
 
-### 4. Why This Matters for BCI
+### 2. Why This Matters for BCI
 
 **Noise Reduction:**
 
@@ -513,7 +500,7 @@ $$
 | Raw Data | 58% | 112ms |
 | Processed | 92% | 68ms |
 
-### 5. Biological Basis for Feature Selection
+### 4. Biological Basis for Feature Selection
 
 **Motor Imagery Detection:**
 
@@ -577,10 +564,9 @@ EEG Feature Extraction Pipeline
 *This pipeline enables 18-22ms feature extraction latency per 256-sample window, critical for real-time drone control.*
 
 
-```
 
 
-### 4. Thread Synchronization Mechanism
+## Thread Synchronization Mechanism
 
 ```python
 # Data Pipeline
@@ -605,7 +591,7 @@ lock = threading.Lock()            # Resource access control
 ```
 
 
-### 5. Performance Considerations
+### Performance Considerations
 
 1. **Timing Constraints** (256Hz sampling):
     - 3.9ms per sample window
