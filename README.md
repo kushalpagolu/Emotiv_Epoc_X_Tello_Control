@@ -153,7 +153,7 @@ python main.py --connect-drone
     * You can interrupt the script by pressing `Ctrl+C`. This will trigger the shutdown sequence, landing the drone and disconnecting from the devices.
 
 
-### EEGProcessor class is designed to preprocess EEG data, extract meaningful features, and classify brain states using a Random Forest model for real-time drone control. Let's analyze the code in depth.
+### EEGProcessor class is designed to preprocess EEG data, extract meaningful features, and classify brain states using a LSTM model to adapt and learn and predicts an input vector to an RL agent for real-time drone control. Let's analyze the code in depth.
 
 
 ## File Structure and Descriptions
@@ -163,7 +163,7 @@ Here's a breakdown of the purpose of each file in the project:
 * **`main.py`**: This is the main entry point of the application. It handles the overall program flow, device connections, thread management, and the main loop for data collection and processing.
 * **`learning_rlagent.py`**: Defines the RL environment (`DroneControlEnv`) and manages the RL agent. It includes the logic for state updates, action execution, and model loading/creation.
 * **`drone_control.py`**: Contains the `TelloController` class, which interfaces with the Tello drone via the `djitellopy` library. It provides methods for connecting to the drone, sending control commands (takeoff, land, movement), and setting speeds.
-* **`visualizer_realtime.py`**: Implements the `RealtimeEEGVisualizer` class, responsible for displaying EEG data and gyro data in real-time using Matplotlib.
+* **`visualizer_realtime3D.py`**: Implements the `RealtimeEEGVisualizer` class, responsible for displaying EEG data and gyro data in real-time using Matplotlib.
 * **`stream_data.py`**: Includes the `EmotivStreamer` class, which handles the connection to the Emotiv EPOC X headset, decrypts the EEG data, and preprocesses it for use by the RL agent.
 * **`kalman_filter.py`**: Contains a basic Kalman filter implementation (currently unused in the main loop) for potential noise reduction in sensor data.
 
