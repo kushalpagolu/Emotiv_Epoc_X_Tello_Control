@@ -105,9 +105,12 @@ pip install pandas matplotlib hid djitellopy pycryptodome scikit-learn stable-ba
 
 1. **Clone the Repository:**
 
+To get started, clone the repository:
+
 ```bash
-git clone [repository_url] (https://github.com/kushalpagolu/Emotiv_Epoc_X_Tello_Control)
-cd Emotiv_Epoc_X_Tello_Control
+
+git clone https://github.com/kushalpagolu/Emotiv_Epoc_X_Tello_Control
+
 ```
 
 2. **Connect Hardware:**
