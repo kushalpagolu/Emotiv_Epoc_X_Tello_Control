@@ -106,7 +106,7 @@ pip install pandas matplotlib hid djitellopy pycryptodome scikit-learn stable-ba
 1. **Clone the Repository:**
 
 ```bash
-git clone [<repository_url>](https://github.com/kushalpagolu/Emotiv_Epoc_X_Tello_Control)
+git clone [<repository_url>] (https://github.com/kushalpagolu/Emotiv_Epoc_X_Tello_Control)
 cd Emotiv_Epoc_X_Tello_Control
 ```
 
@@ -235,6 +235,11 @@ A multi-threaded architecture processes EEG data from an Emotiv headset, extract
 ```
 
 ![threading](https://github.com/user-attachments/assets/cf0a3258-1f40-4721-a2f1-3937ca993885)
+
+
+![Arrow](https://github.com/user-attachments/assets/df4c5208-909a-49ca-936d-165a21715ff7)
+
+
 
 ![lstmrlagentdroneenv](https://github.com/user-attachments/assets/516b7c84-ab0c-47b4-968d-3fbb48da74dd)
 
