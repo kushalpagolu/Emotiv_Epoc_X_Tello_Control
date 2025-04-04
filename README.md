@@ -369,7 +369,7 @@ def higuchi_fractal_dimension(signal):
 
 ### 1. Preprocessing Pipeline Architecture
 
-```mermaid
+```
 
     R[Raw EEG] --> BP[1-50Hz Bandpass]
     BP --> NF[50Hz Notch]
