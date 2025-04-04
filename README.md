@@ -94,7 +94,7 @@ This predictable key generation and ECB mode usage create cryptographic vulnerab
     * Install the required Python packages using pip:
 
 ```bash
-pip install pandas matplotlib hid djitellopy pycryptodome scikit-learn stable-baselines3 gym
+pip install pandas matplotlib hid djitellopy pycryptodome scikit-learn stable-baselines3 gym numpy, scipy, pywt, pynput                       
 ```
 
 
@@ -103,8 +103,8 @@ pip install pandas matplotlib hid djitellopy pycryptodome scikit-learn stable-ba
 1. **Clone the Repository:**
 
 ```bash
-git clone <repository_url>
-cd <repository_directory>
+git clone [<repository_url>](https://github.com/kushalpagolu/Emotiv_Epoc_X_Tello_Control)
+cd Emotiv_Epoc_X_Tello_Control
 ```
 
 2. **Connect Hardware:**
@@ -116,9 +116,10 @@ cd <repository_directory>
 1. **Navigate to the Project Directory:**
 
 ```bash
-cd <repository_directory>
+cd Emotiv_Epoc_X_Tello_Control
 ```
 
+## Without connecting a drone run the project to see the predictions.
 2. **Run `main.py`:**
 
 ```bash
@@ -229,6 +230,14 @@ A multi-threaded architecture processes EEG data from an Emotiv headset, extract
 │ (Sequence Prediction)   │ │ (Action Decision)│ │  Environment     │ │  Subsystem    │
 └─────────────────────────┘ └──────────────────┘ └──────────────────┘ └───────────────┘
 ```
+
+![threading](https://github.com/user-attachments/assets/cf0a3258-1f40-4721-a2f1-3937ca993885)
+
+                                              | 
+                                              | 
+                                              ▼
+
+![lstmrlagentdroneenv](https://github.com/user-attachments/assets/516b7c84-ab0c-47b4-968d-3fbb48da74dd)
 
 
 ## Key Components
@@ -512,30 +521,6 @@ RL Agent Output: 6 actions  # (yaw, pitch, roll, altitude, x, y)
 ```
 
 
-## Setup Instructions
-
-1. **Hardware Requirements:**
-
-```bash
-- Emotiv EPOC+ EEG headset
-- Tello drone (Wi-Fi connected)
-- Python 3.8+ with scientific stack
-```
-
-2. **Runtime Configuration:**
-
-```python
-python main.py --connect-drone  # Enable actual drone control
-```
-
-3. **Key Dependencies:**
-
-```python
-numpy, scipy, pywt           # Signal processing
-stable-baselines3            # Reinforcement learning
-matplotlib                   # Visualization
-pynput                       # Keyboard input handling
-```
 
 
 ## Troubleshooting Guide
