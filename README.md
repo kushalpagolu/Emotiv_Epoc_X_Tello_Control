@@ -285,7 +285,7 @@ Raw EEG → Bandpass Filter → Notch Filter → ICA → CAR →
 ```
 
 
-# EEG Feature Extraction Pipeline Documentation
+# EEG Feature Extraction Pipeline
 
 ## 📌 Overview
 
