@@ -269,6 +269,17 @@ def preprocessing_thread():
 
 ### 3. Critical Processing Modules
 
+These steps are all about cleaning the raw EEG signals before extracting meaningful features. EEG is notoriously noisy, so this stage is critical for ensuring good data quality for ML/RL models.
+
+EEG signals are very weak (µV range) and easily corrupted by:
+
+Powerline interference (50/60Hz)
+
+Eye blinks, muscle activity, jaw clenches
+
+Sensor drift and environmental electrical noise
+
+
 **Feature Extraction Pipeline (`feature_extraction.py`):**
 
 ```python
@@ -302,6 +313,10 @@ This feature extraction pipeline transforms raw EEG signals into meaningful biom
 ---
 
 ## 🔍 Detailed Processing Stages
+
+
+<img width="474" alt="Screenshot 2025-04-04 at 8 17 06 PM" src="https://github.com/user-attachments/assets/b1951be2-5679-42e8-a7be-348b5f4f5ef4" />
+
 
 ### 1. Signal Preprocessing
 
