@@ -153,7 +153,7 @@ python main.py --connect-drone
     * You can interrupt the script by pressing `Ctrl+C`. This will trigger the shutdown sequence, landing the drone and disconnecting from the devices.
 
 
-### EEGProcessor class is designed to preprocess EEG data, extract meaningful features, and classify brain states using a LSTM model to adapt and learn and predicts an input vector to an RL agent for real-time drone control. Let's analyze the code in depth.
+### EmotivStreamer class is designed to read EEG raw data, preprocess EEG raw data, extract meaningful features, and classify brain states using a LSTM model to adapt and learn and predicts an input vector to an RL agent for real-time drone control. Let's analyze the code in depth.
 
 
 ## File Structure and Descriptions
@@ -210,14 +210,9 @@ A multi-threaded architecture processes EEG data from an Emotiv headset, extract
 ## Program Flow Chart
 
 
-![threading](https://github.com/user-attachments/assets/cf0a3258-1f40-4721-a2f1-3937ca993885)
+![properflow](https://github.com/user-attachments/assets/2160bb33-77bc-4b18-ab9a-afb3222883a3)
 
 
-![Arrow](https://github.com/user-attachments/assets/df4c5208-909a-49ca-936d-165a21715ff7)
-
-
-
-![lstmrlagentdroneenv](https://github.com/user-attachments/assets/516b7c84-ab0c-47b4-968d-3fbb48da74dd)
 
 
 ## Key Components
