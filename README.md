@@ -10,9 +10,7 @@ This project aims to control a Tello drone using real-time EEG data streamed fro
 ### The EMOTIV EPOC+ headset sends encrypted 32-byte data packets that decrypt to a structured array containing EEG readings, sensor data, and device status information. 
 
 
-## Here's the breakdown of the decrypted data structure:
-
-## Data Packet Structure
+## Here's the breakdown of the decrypted Data Packet Structure
 
 | **Index** | **Data Type** | **Description** | **Value Range** |
 | :-- | :-- | :-- | :-- |
@@ -124,6 +122,40 @@ git clone https://github.com/kushalpagolu/Emotiv_Epoc_X_Tello_Control
 ```bash
 cd Emotiv_Epoc_X_Tello_Control
 ```
+
+# Create a virtual environment
+```
+python -m venv env
+```
+
+# Activate the virtual environment
+
+# For Windows:
+
+```
+env\Scripts\activate
+```
+# For macOS/Linux:
+
+```
+source env/bin/activate
+```
+
+# Install all the dependencies
+
+```
+pip install -r requirements.txt
+```
+
+This will install the necessary packages such as:
+
+hid: For interacting with the Emotiv device.
+
+#Macos
+```
+brew install hidapi
+```
+
 
 ## Without connecting a drone run the project to see the predictions.
 2. **Run `main.py`:**
